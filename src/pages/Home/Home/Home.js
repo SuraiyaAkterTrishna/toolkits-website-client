@@ -1,13 +1,13 @@
 import React from 'react';
-import Navber from '../../Shared/Navber/Navber';
 import Banner from '../Banner/Banner';
+import Products from '../Products/Products';
 import Policy from './Policy';
 
 const Home = () => {
     return (
-        <div>
-            <Navber></Navber>
+        <div className='px-12'>
             <Banner></Banner>
+            <Products></Products>
             <Policy></Policy>
         </div>
     );
