@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Navbar = () => {
-  const [ user, loading, error ] = useAuthState(auth)
-  const logOut = () =>{
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user);
+  const logOut = () => {
     signOut(auth);
-  }
+  };
   const myItems = (
     <>
       <li>
@@ -70,9 +71,20 @@ const Navbar = () => {
           <ul className="menu menu-horizontal p-0">{myItems}</ul>
         </div>
         <div className="navbar-end">
-          <li>
-            {user ? <Link to="/login" onClick={logOut} className="btn">sign out</Link> : <Link to="/login" className="btn">login</Link>}
-          </li>
+          <div className="mr-2">
+            {user ? <p className="text-primary font-bold">{user?.displayName} </p> : ""}
+          </div>
+          <div>  
+            {user ? (
+              <Link to="/login" onClick={logOut} className="btn text-white">
+                sign out
+              </Link>
+            ) : (
+              <Link to="/login" className="btn">
+                login
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
