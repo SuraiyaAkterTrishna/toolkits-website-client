@@ -2,12 +2,12 @@ import "./App.css";
 import Navbar from "./pages/Shared/Navbar";
 import Home from "./pages/Home/Home/Home";
 import Footer from "./pages/Shared/Footer";
-import Login from "./pages/LogIn/Login";
-import SignUp from "./pages/LogIn/SignUp";
+import Login from "./pages/Login/Login";
+import SignUp from "./pages/Login/SignUp";
 import { Route, Routes } from "react-router-dom";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Products from "./pages/Home/Products/Products";
-import RequireAuth from "./pages/LogIn/RequireAuth";
+import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
 
 function App() {

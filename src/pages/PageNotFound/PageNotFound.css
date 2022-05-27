@@ -6,6 +6,9 @@
 #notFound {
   position: relative;
   height: 100vh;
+  background-image: url(./../../assets/pageNotFound.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #notFound .notFound {

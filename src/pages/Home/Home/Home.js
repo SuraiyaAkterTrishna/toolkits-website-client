@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import Products from '../Products/Products';
+import BusinessSummary from './BusinessSummary';
 import Policy from './Policy';
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
         <div className='px-12'>
             <Banner></Banner>
             <Products></Products>
-            <Policy></Policy>
+            <BusinessSummary></BusinessSummary>
         </div>
     );
 };
