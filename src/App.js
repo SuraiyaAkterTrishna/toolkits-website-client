@@ -9,6 +9,8 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Products from "./pages/Home/Products/Products";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
+import Blogs from "./pages/Blogs/Blogs";
+import Portfolio from "./pages/Home/Home/Portfolio";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />}></Route>
         <Route path="/products" element={<Products />}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route
           path="/purchase"
           element={

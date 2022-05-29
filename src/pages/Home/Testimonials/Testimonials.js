@@ -32,10 +32,10 @@ const Testimonials = () => {
     },
   ];
   return (
-    <section className="my-28">
+    <section className="my-20">
       <div>
-        <h2 className="text-xl text-center text-primary font-bold">THEY SAY</h2>
-        <h1 className="text-6xl text-center font-bold">Testimonials</h1>
+      <p className='text-5xl font-bold tracking-widest text-primary text-center m-5'>TESTIMONIALS</p>
+      <p className='text-lg text-gray-400 text-center w-2/5 mx-auto'>What Clients say About Us..</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 my-8">
         {reviews.map((review) => (
