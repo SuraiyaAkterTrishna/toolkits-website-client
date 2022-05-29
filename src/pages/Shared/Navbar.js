@@ -27,9 +27,6 @@ const Navbar = () => {
       <li>
         <Link to="/portfolio">My Portfolio</Link>
       </li>
-      <li>
-        <Link to="/about">About Us</Link>
-      </li>
     </>
   );
   return (
