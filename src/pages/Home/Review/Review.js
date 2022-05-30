@@ -6,11 +6,11 @@ const Review = ({ review }) => {
       <div className="card-body items-center">
         <div className="avatar">
           <div className="w-40 rounded-full ring ring-primary ring-offset-base-100 mr-5">
-            <img src={review.img} alt="" />
+            <img src={review.image} alt="" />
           </div>
         </div>
         <h3 className="text-2xl font-bold">{review.name}</h3>
-        <p>{review.location}</p>
+        <p className="text-gray-500">Ratting: <span>{review.ratting} star</span></p>
         <p className="text-gray-500"><span>"</span>{review.review}<span>"</span></p>
       </div>
     </div>

@@ -4,8 +4,8 @@ import './PageNotFound.css';
 const PageNotFound = () => {
     return (
         <div id="notFound">
-            <div class="notFound">
-                <div class="notFound-404">
+            <div className="notFound">
+                <div className="notFound-404">
                     <h3>Oops! Page not found</h3>
                     <h1><span>4</span><span>0</span><span>4</span></h1>
                 </div>

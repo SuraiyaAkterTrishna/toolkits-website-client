@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import Products from '../Products/Products';
-import Testimonials from '../Testimonials/Testimonials';
+import Reviews from '../Reviews/Reviews';
 import BusinessSummary from './BusinessSummary';
 import Policy from './Policy';
 
@@ -14,7 +14,7 @@ const Home = () => {
             <Policy></Policy>
             <Gallery></Gallery>
             <BusinessSummary></BusinessSummary>
-            <Testimonials></Testimonials>
+            <Reviews></Reviews>
         </div>
     );
 };

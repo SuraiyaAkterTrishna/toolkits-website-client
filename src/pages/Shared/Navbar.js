@@ -5,22 +5,21 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Navbar = () => {
-  const [user, loading, error] = useAuthState(auth);
-  console.log(user);
+  const [user] = useAuthState(auth);
   const logOut = () => {
     signOut(auth);
+    localStorage.removeItem('accessToken');
   };
   const myItems = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
-        <Link to="/product">Product</Link>
-      </li>
-      <li>
-        <Link to="/purchase">Purchase</Link>
-      </li>
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
@@ -58,7 +57,7 @@ const Navbar = () => {
             </ul>
           </div>
           <a
-            href="www.google.com"
+            href="/"
             className="btn btn-ghost normal-case text-xl"
           >
             <img
@@ -72,11 +71,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           <div className="mr-2">
-            {user ? <p className="text-primary font-bold">{user?.displayName} </p> : ""}
+            {user && <p className="text-primary font-bold">{user?.displayName} </p>}
           </div>
-          <div>  
+          <div>
             {user ? (
-              <Link to="/login" onClick={logOut} className="btn text-white">
+              <Link to="/" onClick={logOut} className="btn text-white">
                 sign out
               </Link>
             ) : (
@@ -85,6 +84,24 @@ const Navbar = () => {
               </Link>
             )}
           </div>
+          <div>
+            <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -92,3 +109,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

@@ -9,6 +9,17 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Products from "./pages/Home/Products/Products";
 import RequireAuth from "./pages/Login/RequireAuth";
 import Purchase from "./pages/Purchase/Purchase";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrder from "./pages/Dashboard/MyOrder";
+import MyProfile from "./pages/Dashboard/MyProfile";
+import AddReview from "./pages/Dashboard/AddReview";
+import { ToastContainer } from "react-toastify";
+import MakeAdmin from "./pages/Dashboard/MakeAdmin";
+import AddProduct from "./pages/Dashboard/AddProduct";
+import ManageOrders from "./pages/Dashboard/ManageOrders";
+import ManageProducts from "./pages/Dashboard/ManageProducts";
+import RequireAdmin from "./pages/Login/RequireAdmin";
+import Payment from "./pages/Dashboard/Payment";
 import Blogs from "./pages/Blogs/Blogs";
 import Portfolio from "./pages/Home/Home/Portfolio";
 
@@ -25,15 +36,37 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route
-          path="/purchase"
+          path="purchase/:id"
           element={
             <RequireAuth>
               <Purchase />
             </RequireAuth>
           }
         ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path="my-order" element={<MyOrder></MyOrder>}></Route>
+          <Route path="review" element={<AddReview></AddReview>}></Route>
+          <Route path="make-admin" element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path="add-product" element={
+            <RequireAdmin>
+              <AddProduct></AddProduct>
+            </RequireAdmin>}>
+          </Route>
+          <Route path="manage-orders" element={<ManageOrders></ManageOrders>}></Route>
+          <Route path="manage-products" element={<ManageProducts></ManageProducts>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
+        </Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
