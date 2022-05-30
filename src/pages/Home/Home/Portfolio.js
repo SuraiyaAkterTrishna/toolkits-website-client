@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Portfolio = () => {
     return (
@@ -13,7 +12,6 @@ const Portfolio = () => {
             <br />
             <p className='text-4xl font-bold'>Some of My Live Website Links:</p> 
             <br />
-            <p className='text-2xl'>1. Warehouse Management System: https://warehouse-management-b2b0c.web.app/</p>
             <p className='text-2xl'>1. Warehouse Management System: https://warehouse-management-b4b0c.web.app/</p>
             <p className='text-2xl'>2. Health Coach: https://health-coach-372bc.firebaseapp.com/</p>
             <p className='text-2xl'>3. Plant Paradise: https://plant-paradise.netlify.app/</p>

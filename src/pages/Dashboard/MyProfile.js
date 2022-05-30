@@ -1,12 +1,58 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useQuery } from "react-query";
+import Loading from "../Shared/Loading";
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const MyProfile = () => {
     const [user] = useAuthState(auth);
+    const {
+      data: users,
+      isLoading,
+    } = useQuery("users", () =>
+      fetch("https://thawing-mesa-46610.herokuapp.com/user", {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
+    );
+    if (isLoading) {
+      return <Loading></Loading>;
+    }
     const updateUserInfo = (event) =>{
       event.preventDefault();
-      console.log(user)
+      const username = event.target.username.value;
+      const email = event.target.email.value;
+      const address = event.target.address.value;
+      const phone = event.target.phone.value;
+      const education = event.target.education.value;
+      const linkedin = event.target.linkedin.value;
+      const currentUser = users.find(user => user.email === email);
+      const id = currentUser._id;
+      const updatedUser = {
+        'username': username,
+        'email': email,
+        'address': address,
+        'phone': phone,
+        'education': education,
+        'linkedin': linkedin,
+      }
+      //send data to the server
+      const url = `https://thawing-mesa-46610.herokuapp.com/user/${id}`;
+      fetch(url, {
+          method: 'PUT',
+          headers: {
+              'content-type': 'application/json'
+          },
+          body: JSON.stringify(updatedUser)
+      })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+            toast('Your Profile Update Successfully!!!');
+          })
     }
     return (
         <div className='w-1/3 mx-auto'>
@@ -108,14 +154,14 @@ const MyProfile = () => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="linkdin"
               >
-                Linkdin Profile
+                Linkedin Profile
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="linkdin"
-                name="linkdin"
+                id="linkedin"
+                name="linkedin"
                 type="text"
-                placeholder="Enter your Linkdin Profile"
+                placeholder="Enter your Linkedin Profile"
               />
             </div>
           </div>

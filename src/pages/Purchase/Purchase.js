@@ -13,7 +13,7 @@ const Purchase = () => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [purchase, setPurchase] = useState(false);
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://thawing-mesa-46610.herokuapp.com/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -66,7 +66,7 @@ const Purchase = () => {
       address: event.target.address?.value,
     };
     //send data to the server
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://thawing-mesa-46610.herokuapp.com/product/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -79,7 +79,7 @@ const Purchase = () => {
         setPurchase(true);
       });
     // create order
-    axios.post("http://localhost:5000/order", order).then((response) => {
+    axios.post("https://thawing-mesa-46610.herokuapp.com/order", order).then((response) => {
       const { data } = response;
       if (data.insertedId) {
         toast("Your order is added!");

@@ -23,7 +23,7 @@ const AddReview = () => {
         ratting: data.ratting,
     }
     // send to database 
-    fetch('http://localhost:5000/review', {
+    fetch('https://thawing-mesa-46610.herokuapp.com/review', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
