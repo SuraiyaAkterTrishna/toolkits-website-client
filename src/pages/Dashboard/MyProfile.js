@@ -176,6 +176,7 @@ const MyProfile = () => {
         </form>
         </div>
     );
+    
 };
 
 export default MyProfile;
