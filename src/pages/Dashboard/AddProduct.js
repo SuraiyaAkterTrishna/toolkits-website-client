@@ -26,7 +26,7 @@ const AddProduct = () => {
         price: data.price,
     }
     // send to database 
-    fetch('toolkits.up.railway.app/product', {
+    fetch('https://toolkits.up.railway.app/product', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

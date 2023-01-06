@@ -4,7 +4,7 @@ import Review from "../Review/Review";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("toolkits.up.railway.app/review")
+    fetch("https://toolkits.up.railway.app/review")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

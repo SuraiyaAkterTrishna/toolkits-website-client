@@ -23,7 +23,7 @@ const AddReview = () => {
         ratting: data.ratting,
     }
     // send to database 
-    fetch('toolkits.up.railway.app/review', {
+    fetch('https://toolkits.up.railway.app/review', {
         method: 'POST',
         headers: {
             'content-type': 'application/json',

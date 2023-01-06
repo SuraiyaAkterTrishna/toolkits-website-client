@@ -4,7 +4,7 @@ import Product from '../Product/Product';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect( ()=>{
-        fetch('toolkits.up.railway.app/product')
+        fetch('https://toolkits.up.railway.app/product')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])

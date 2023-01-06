@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("toolkits.up.railway.app/user", {
+    fetch("https://toolkits.up.railway.app/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
